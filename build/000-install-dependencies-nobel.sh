@@ -2,7 +2,6 @@
 set -ex
 
 cd $HOME
-
 # Copied from https://github.com/swiftlang/swift-docker/blob/main/swift-ci/main/ubuntu/24.04/Dockerfile
 DEBIAN_FRONTEND="noninteractive"
 
