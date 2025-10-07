@@ -1,11 +1,7 @@
 name: Build Android Toolchain
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
-  push:
-    branches:
-      - master
+  workflow_dispatch:
   pull_request:
     branches:
       - master
