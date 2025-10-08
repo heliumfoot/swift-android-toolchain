@@ -8,7 +8,7 @@ $SWIFT_SRC/swift/utils/build-script \
     --android \
     --android-ndk $ANDROID_NDK \
     --android-arch x86_64 \
-    --android-api-level 21 \
+    --android-api-level 29 \
     --stdlib-deployment-targets=android-x86_64 \
     --native-swift-tools-path=$SWIFT_PATH \
     --native-clang-tools-path=$SWIFT_PATH \
