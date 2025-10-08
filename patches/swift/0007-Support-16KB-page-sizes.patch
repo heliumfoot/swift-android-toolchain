@@ -1,11 +1,12 @@
-From 8ea19fc840a7156b3c324d67d28282dd2f37f55a Mon Sep 17 00:00:00 2001
+From ab3d7f7c66d1ddccf197e7c6bc9bf755bad49ab7 Mon Sep 17 00:00:00 2001
 From: Donna Tom <donna@heliumfoot.com>
 Date: Tue, 7 Oct 2025 19:06:54 -0700
 Subject: [PATCH] Support 16Kb page sizes for Android
 
 ---
- stdlib/cmake/modules/AddSwiftStdlib.cmake | 2 ++
- 1 file changed, 2 insertions(+)
+ stdlib/cmake/modules/AddSwiftStdlib.cmake                | 2 ++
+ utils/swift_build_support/swift_build_support/targets.py | 3 ++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/stdlib/cmake/modules/AddSwiftStdlib.cmake b/stdlib/cmake/modules/AddSwiftStdlib.cmake
 index 77dff0e1a21..9436dffd41a 100644
@@ -20,6 +21,20 @@ index 77dff0e1a21..9436dffd41a 100644
        endif()
  
        if (SWIFTLIB_BACK_DEPLOYMENT_LIBRARY)
+diff --git a/utils/swift_build_support/swift_build_support/targets.py b/utils/swift_build_support/swift_build_support/targets.py
+index 82ee2e37228..5efb4a3385c 100644
+--- a/utils/swift_build_support/swift_build_support/targets.py
++++ b/utils/swift_build_support/swift_build_support/targets.py
+@@ -164,7 +164,8 @@ class AndroidPlatform(Platform):
+         android_toolchain_path = self.ndk_toolchain_path(args)
+ 
+         flags += '-sdk %s/sysroot ' % (android_toolchain_path)
+-        flags += '-tools-directory %s/bin' % (android_toolchain_path)
++        flags += '-tools-directory %s/bin ' % (android_toolchain_path)
++        flags += '-Xclang-linker -Wl,-z,max-page-size=16384'
+         return flags
+ 
+     def cmake_options(self, args):
 -- 
 2.39.5 (Apple Git-154)
 
