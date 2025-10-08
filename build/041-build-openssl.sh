@@ -21,7 +21,7 @@ pushd $OPENSSL_LIBS
 
 popd
  
-API=24
+API=29
 HOST=linux-x86_64
 TOOLCHAIN=$ANDROID_NDK/toolchains/llvm/prebuilt/$HOST
 PATH=$TOOLCHAIN/bin:$PATH
