@@ -23,7 +23,7 @@ pushd $SWIFT_SRC
     for REPO in */; do
         if [ -d "$ROOT_DIR/patches/$REPO" ]; then
             pushd $REPO
-                git apply $ROOT_DIR/patches/$REPO/*.patch
+                git apply -v $ROOT_DIR/patches/$REPO/*.patch
                 echo "$(ls $ROOT_DIR/patches/$REPO)" >> $ROOT_DIR/.swift.sum
             popd
         fi
